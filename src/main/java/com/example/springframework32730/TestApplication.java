@@ -5,7 +5,7 @@ import jakarta.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 
-@ApplicationPath("/")
+@ApplicationPath("/leak")
 @Component
 public class TestApplication extends ResourceConfig {
     @PostConstruct

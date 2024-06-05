@@ -17,10 +17,22 @@ class SpringFramework32730ApplicationTests {
     private TestRestTemplate template;
 
     @Test
-    void testGet() {
+    void testGetLeak() {
         int i = 0;
         while (!Thread.interrupted()) {
-            final ResponseEntity<String> response = template.getForEntity("/test", String.class);
+            final ResponseEntity<String> response = template.getForEntity("/leak/test", String.class);
+            if (i % 1000 == 0) {
+                LOG.info("response={}", response);
+            }
+            i++;
+        }
+    }
+
+    @Test
+    void testGetNoLeak() {
+        int i = 0;
+        while (!Thread.interrupted()) {
+            final ResponseEntity<String> response = template.getForEntity("/noleak/async-deferredresult", String.class);
             if (i % 1000 == 0) {
                 LOG.info("response={}", response);
             }
