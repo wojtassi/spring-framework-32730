@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-//@ComponentScan("com.example.springframework32730")
 public class SpringFramework32730Application {
 
     public static void main(String[] args) {
